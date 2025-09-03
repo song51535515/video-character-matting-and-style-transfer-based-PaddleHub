@@ -33,7 +33,7 @@
     -   pillow
 
 ## 安装依赖
-```
+```python
 pip install opencv-python matplotlib tqdm moviepy requests beautifulsoup4 lxml pillow 
 pip install paddlehub==1.6.0 -i https://pypi.tuna.tsinghua.edu.cn/simple 
 hub install deeplabv3p_xception65_humanseg==1.0.0 
@@ -48,7 +48,7 @@ hub install stylepro_artistic
     -   作为新背景的视频（命名为 bkg.mp4）
     
 1.  检查必要的文件夹（若没有需创建）：
-```
+```python
 mkdir transv_result humanseg_output back_video_img blend_img work/Cafe work/Sunrise transvideo_result
 ``` 
 
@@ -80,7 +80,7 @@ mkdir transv_result humanseg_output back_video_img blend_img work/Cafe work/Sunr
 ## 代码步骤
 **step 1  视频帧提取＋人物抠像**
 将原视频的每一帧都提取出来, 分别放入transv_result文件夹
-```
+```python
 import cv2
 from tqdm import tqdm
 video = cv2.VideoCapture("video.mp4")
@@ -99,7 +99,7 @@ for i in tqdm(range(int(frameCount)),desc='处理进度'):
 
 ```
 抠出每一帧人像，进行循环，保存在humanseg_output文件夹中
-```
+```python
 for i in range(img_num):
     img_name = str(i)+'.jpg'
     test_img_path = ["transv_result/"+img_name]
@@ -113,7 +113,7 @@ for i in range(img_num):
 
 ```
 同样的方法提取背景视频的每一帧存入back_video_img文件夹
-```
+```python
 import cv2
 from tqdm import tqdm
 video = cv2.VideoCapture("bkg.mp4")
@@ -131,7 +131,7 @@ for i in tqdm(range(int(frameCount)),desc='处理进度'):
 ```
 **step 2 背景图像提取，并与抠出的人像融合**
 抠出的人物图片和背景图片进行融合，进行循环
-```
+```python
 from PIL import Image
 import numpy as np
 import os
@@ -162,7 +162,7 @@ for i in range(img_num):
 
 ```
 将视频的每一帧与图片进行融合，最后保存为图片
-```
+```python
 import cv2
 import os
 
@@ -189,7 +189,7 @@ for i in range(img_num):
 video.release() #释放
 ```
 提取原视频音频，合到新的视频上
-```
+```python
 from moviepy.editor import *
 video_o = VideoFileClip("video.mp4")
 videoclip = VideoFileClip("Happy.mp4")
@@ -202,7 +202,7 @@ videoclip2.write_videofile("result.mp4")
 ```
 **step 3 风格化视频**
 爬取百度百科中《夜间的露天咖啡座》和《日出印象》对应画作
-```
+```python
 import os
 import time
 import requests
@@ -272,7 +272,7 @@ if __name__ == '__main__':
 
 ```
 将视频中的每一帧进行风格迁移（为了同时展示抠图和风格迁移成果前44帧保留抠图视频，44帧后为风格迁移视频）
-```
+```python
 import cv2
 import paddlehub as hub
 from tqdm import tqdm
@@ -305,7 +305,7 @@ for i in tqdm(range(int(frameCount))):
 
 ```
 将图片合成为视频
-```
+```python
 import os
 import cv2
 
@@ -361,7 +361,7 @@ cv2.destroyAllWindows()
 print(f"视频合成完成，共写入 {len(sorted_files)} 张图片")
 ```
 提取原音频，合成到新的视频上
-```
+```python
 from moviepy.editor import *
 video_o = VideoFileClip("video.mp4")
 videoclip = VideoFileClip("Victory.avi")

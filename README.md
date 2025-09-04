@@ -60,7 +60,7 @@ mkdir transv_result humanseg_output back_video_img blend_img work/Cafe work/Sunr
 
 ```plaintext
 .
-├── main.py               	 # 主程序脚本
+├── main.ipynb               # 主程序脚本
 ├── video.mp4                # 输入的原视频（需用户提供）
 ├── bkg.mp4                  # 输入的背景视频（需用户提供）
 ├── transv_result/           # 原视频提取的帧

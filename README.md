@@ -1,4 +1,4 @@
-# video character matting and style transfer based PaddleHub
+# 使用PaddleHub实现视频人物抠图和风格迁移
 
 这个项目实现了将视频中的人物抠出，替换背景，并融合梵高的《夜间的露天咖啡座》与莫奈的《日出印象》的艺术风格对视频每一帧画面实现风格迁移，最终生成新的视频并保留原视频音频
 

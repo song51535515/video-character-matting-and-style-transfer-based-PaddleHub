@@ -79,6 +79,7 @@ mkdir transv_result humanseg_output back_video_img blend_img work/Cafe work/Sunr
 
 ## 代码步骤
 **step 1  视频帧提取＋人物抠像**
+
 将原视频的每一帧都提取出来, 分别放入transv_result文件夹
 ```python
 import cv2
@@ -130,6 +131,7 @@ for i in tqdm(range(int(frameCount)),desc='处理进度'):
     index += 1
 ```
 **step 2 背景图像提取，并与抠出的人像融合**
+
 抠出的人物图片和背景图片进行融合，进行循环
 ```python
 from PIL import Image
@@ -201,6 +203,7 @@ videoclip2.write_videofile("result.mp4")
 
 ```
 **step 3 风格化视频**
+
 爬取百度百科中《夜间的露天咖啡座》和《日出印象》对应画作
 ```python
 import os

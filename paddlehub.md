@@ -78,7 +78,7 @@ mkdir transv_result humanseg_output back_video_img blend_img work/Cafe work/Sunr
 └── Vic.mp4                 # Style transfering video
 ```
 
-## 代码步骤
+## Code steps
 **step 1  Video frame extraction + character segmentation**
 
 Extract every frame of the original video and place them separately in the transv-result folder

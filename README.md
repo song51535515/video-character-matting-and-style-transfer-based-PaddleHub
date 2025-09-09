@@ -112,6 +112,8 @@ for i in range(img_num):
 
 # execute predict and print the result
     results = module.segmentation(data=input_dict)
+test_img_path = "humanseg_output/"+img_name.split('.')[0]+'.png'
+img = mpimg.imread(test_img_path)
 
 ```
 Extract each frame of the background video and store it in the back-video_img folder
